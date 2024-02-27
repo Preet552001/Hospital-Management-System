@@ -15,8 +15,7 @@ export class JwtInterceptor implements HttpInterceptor {
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    let token =
-      'eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5hbnRfaWQiOiIzMCIsInRlbmFudF9lbWFpbCI6InByZWV0LnBhdGVsQGdvZGlnaXRhbHRjLmNvbSIsImNyZWF0ZWRfb24iOiIyLzE1LzIwMjQgMTI6NDI6MzggUE0iLCJleHAiOjE3MDkyODkxNjB9.PNVySgoFq4CN0T1r8Pyc2wiWJq0GjL4_sROc2Uv6tus';
+    let token =""    
     if (token == null || token == 'null') {
       request = request.clone({
         setHeaders: {
