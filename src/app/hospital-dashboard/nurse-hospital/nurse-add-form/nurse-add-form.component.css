@@ -1,0 +1,21 @@
+.flex{
+    display: flex;
+    justify-content: space-between;    
+}
+
+.mdc-button{
+    width: 200px;
+}
+
+.form {
+    min-width: 400px;
+    max-width: 400px;
+    width: 100%;
+}
+
+.full-width {
+    width: 100%;
+}
+.mat-mdc-form-field-error{
+    font-size:10px;
+}

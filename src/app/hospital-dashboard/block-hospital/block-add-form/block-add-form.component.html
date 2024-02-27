@@ -1,0 +1,25 @@
+<div class="flex">
+    <h2 mat-dialog-title>Add New Block</h2>
+    <mat-dialog-actions>
+        <button mat-mini-fab color="warn" mat-dialog-close><mat-icon>close</mat-icon></button>
+    </mat-dialog-actions>
+</div>
+<form mat-dialog-content class="form" [formGroup]="blockRegistrationForm">
+    <mat-form-field class="full-width">
+        <mat-label>Enter Block Floor</mat-label>
+        <input matInput placeholder="Enter Floor" formControlName="blockFloor">
+        <mat-error *ngIf="blockRegistrationForm.get('blockFloor').hasError('required')" class="full-width">Block floor field is required.</mat-error>
+        <mat-error *ngIf="blockRegistrationForm.get('blockFloor').hasError('pattern')" class="full-width">Please enter valid block floor.</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="full-width">
+        <mat-label>Enter Block Code</mat-label>
+        <input matInput placeholder="Enter Code" formControlName="blockCode">
+        <mat-error *ngIf="blockRegistrationForm.get('blockCode').hasError('required')" class="full-width">Block code field is required.</mat-error>
+        <mat-error *ngIf="blockRegistrationForm.get('blockCode').hasError('pattern')" class="full-width">Please enter valid block code.</mat-error>
+    </mat-form-field>
+    <br>
+</form>
+<mat-dialog-actions align="center">
+    <button mat-raised-button color="primary" [disabled]="blockRegistrationForm.invalid"  (click)="addNewBlock()">Submit</button>
+</mat-dialog-actions>

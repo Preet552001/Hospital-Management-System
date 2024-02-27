@@ -1,0 +1,35 @@
+<div class="flex">
+    <h2 mat-dialog-title>Update Physician Training Details</h2>
+    <mat-dialog-actions>
+        <button mat-mini-fab color="warn" mat-dialog-close><mat-icon>close</mat-icon></button>
+    </mat-dialog-actions>
+    </div>
+    <form mat-dialog-content class="form" [formGroup]="trainedInUpdateForm">
+        
+        <mat-form-field class="full-width" >
+            <mat-label>Enter Physician Treatment Trained In</mat-label>
+            <mat-select formControlName="treatmentId">
+                <mat-option *ngFor="let treatment of treatments" [value]="treatment.procedureId"> {{treatment.name}}</mat-option>
+                <mat-error *ngIf="trainedInUpdateForm.get('treatmentId').hasError('required')" class="full-width">Treatment field is required.</mat-error>
+            </mat-select>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="full-width">
+            <mat-label>Enter a Certification date range</mat-label>
+            <mat-date-range-input  [rangePicker]="picker"> 
+              <input matStartDate formControlName="certificationDate" placeholder="Start date">
+              <input matEndDate formControlName="certificationExpires" placeholder="End date">
+            </mat-date-range-input>
+            <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker #picker></mat-date-range-picker>
+            <mat-error *ngIf="trainedInUpdateForm.get('certificationDate').hasError('required')" class="full-width">Certification date field is required.</mat-error>
+            <mat-error *ngIf="trainedInUpdateForm.get('certificationExpires').hasError('required')" class="full-width">Certification date field is required.</mat-error>        
+
+          </mat-form-field>
+        <br>
+    </form>
+    <mat-dialog-actions align="center">
+        <button mat-raised-button color="primary" [disabled]="trainedInUpdateForm.invalid"  (click)="updatePhysician()">Submit</button>
+    </mat-dialog-actions>
+    

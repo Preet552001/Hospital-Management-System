@@ -1,0 +1,17 @@
+.mat-table-container{
+    margin: auto;
+    width: 75%;
+    padding: 10px;
+}
+.mat-mdc-form-field{
+    display: flex;
+    justify-content: space-between;
+    justify-content: center;
+    margin: auto;
+    width: 25%;
+    padding: 10px;
+}
+
+.btn{
+    width: 175px;
+}

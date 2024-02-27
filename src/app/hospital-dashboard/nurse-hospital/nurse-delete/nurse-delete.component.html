@@ -1,0 +1,15 @@
+<div class="flex">
+    <h2 mat-dialog-title >
+        Are You Sure You Want to Delete Nurse</h2>
+    <mat-dialog-actions>
+      <button mat-mini-fab color="warn" mat-dialog-close><mat-icon>close</mat-icon></button>
+      </mat-dialog-actions>
+</div>
+<mat-dialog-content>
+    <!-- <h3>Nurse Id : {{data.nurseData.nurseId}}</h3> -->
+    <h3>Name: {{data.nurseData.name}}</h3>
+    <h5>Position: {{data.nurseData.position}}</h5>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+    <button mat-raised-button color="warn" (click)="deleteNurse()">Delete</button>
+  </mat-dialog-actions>  

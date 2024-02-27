@@ -1,0 +1,14 @@
+<div class="flex">
+    <h2 mat-dialog-title >
+        Are You Sure You Want to Delete Prescription</h2>
+    <mat-dialog-actions>
+      <button mat-mini-fab color="warn" mat-dialog-close><mat-icon>close</mat-icon></button>
+      </mat-dialog-actions>
+</div>
+<mat-dialog-content>
+    <h3>Medication: {{this.data.prescription.medication.name}}</h3>
+    <h5>Dose: {{this.data.prescription.dose}}</h5>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+    <button mat-raised-button color="warn" (click)="deletePrescribed()">Delete</button>
+  </mat-dialog-actions>  

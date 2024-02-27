@@ -1,0 +1,35 @@
+<div class="flex">
+  <h2 mat-dialog-title>Add New Room</h2>
+  <mat-dialog-actions>
+      <button mat-mini-fab color="warn" mat-dialog-close><mat-icon>close</mat-icon></button>
+  </mat-dialog-actions>
+</div>
+<form mat-dialog-content class="form" [formGroup]="prescribedRegistrationForm">
+  <mat-form-field class="full-width" >
+      <mat-label>Enter Medication</mat-label>
+      <mat-select formControlName="medication">
+          <mat-option *ngFor="let medication of medications" [value]="medication.medicationId"> {{medication.name}}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="prescribedRegistrationForm.get('medication').hasError('required')" class="full-width">Medication field is required.</mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field class="full-width">
+      <mat-label>Enter Dose</mat-label>
+      <input matInput placeholder="Enter Dose" formControlName="dose">
+      <mat-error *ngIf="prescribedRegistrationForm.get('dose').hasError('required')" class="full-width">Dose field is required.</mat-error>
+      <mat-error *ngIf="prescribedRegistrationForm.get('dose').hasError('pattern')" class="full-width">Please enter valid dose.</mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field class="full-width">
+      <mat-label>Enter date</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="date">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+       <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="prescribedRegistrationForm.get('date').hasError('required')" class="full-width">Date field is required.</mat-error>
+  </mat-form-field>
+  <br>
+</form>
+<mat-dialog-actions align="center">
+  <button mat-raised-button color="primary" [disabled]="prescribedRegistrationForm.invalid"  (click)="addNewPrescribed()">Submit</button>
+</mat-dialog-actions>

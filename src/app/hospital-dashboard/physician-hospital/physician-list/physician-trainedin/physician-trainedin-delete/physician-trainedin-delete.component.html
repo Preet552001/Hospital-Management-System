@@ -1,0 +1,15 @@
+<div class="flex">
+    <h2 mat-dialog-title >
+        Are You Sure You Want to Delete Training</h2>
+    <mat-dialog-actions>
+      <button mat-mini-fab color="warn" mat-dialog-close><mat-icon>close</mat-icon></button>
+      </mat-dialog-actions>
+</div>
+<mat-dialog-content>
+    <h3>Training Name: {{data.trainedinData.treatment.name}}</h3>
+    <h5>Certification Strat Date: {{data.trainedinData.certificationDate | date}} </h5>
+    <h5>Certification Expires Date: {{data.trainedinData.certificationExpires | date}} </h5>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+    <button mat-raised-button color="warn" (click)="deleteTrainedIn()">Delete</button>
+  </mat-dialog-actions>  

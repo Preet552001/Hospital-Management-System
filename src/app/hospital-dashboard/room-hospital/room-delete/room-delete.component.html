@@ -1,0 +1,17 @@
+<div class="flex">
+    <h2 mat-dialog-title >
+        Are You Sure You Want to Delete Room</h2>
+    <mat-dialog-actions>
+      <button mat-mini-fab color="warn" mat-dialog-close><mat-icon>close</mat-icon></button>
+      </mat-dialog-actions>
+</div>
+<mat-dialog-content>
+    <!-- <h3>Room Id : {{data.roomData.roomId}}</h3> -->
+    <h3>Room Number : {{data.roomData.roomNumber}}</h3>
+    <h5>Room Type : {{data.roomData.roomType}}</h5>
+    <h5>Room Availability : {{data.roomData.availability}}</h5>
+    <h5>Block : {{data.roomData.block.blockCode}}</h5>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+    <button mat-raised-button color="warn" (click)="deleteRoom()">Delete</button>
+  </mat-dialog-actions>  

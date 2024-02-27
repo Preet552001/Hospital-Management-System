@@ -1,0 +1,16 @@
+<div class="flex">
+    <h2 mat-dialog-title >
+        Are You Sure You Want to Delete Appointment</h2>
+    <mat-dialog-actions>
+      <button mat-mini-fab color="warn" mat-dialog-close><mat-icon>close</mat-icon></button>
+      </mat-dialog-actions>
+</div>
+<mat-dialog-content>
+    <h3>Appointment Patient: {{data.appointment.patient.name}}</h3>
+    <h5>Physician: {{data.appointment.physician.name}}</h5>
+    <h5>Appointment Start Date: {{data.appointment.starDateTime | date}} </h5>
+    <h5>Appointment End Date: {{data.appointment.endDateTime | date}} </h5>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+    <button mat-raised-button color="warn" (click)="deleteAppointment()">Delete</button>
+  </mat-dialog-actions>  

@@ -1,0 +1,33 @@
+<div class="flex">
+    <h2 mat-dialog-title>Add OnCall</h2>
+    <mat-dialog-actions>
+        <button mat-mini-fab color="warn" mat-dialog-close><mat-icon>close</mat-icon></button>
+    </mat-dialog-actions>
+    </div>
+    <form mat-dialog-content class="form" [formGroup]="onCallUpdateForm">
+        <mat-form-field class="full-width" >
+            <mat-label>Enter Block</mat-label>
+            <mat-select formControlName="blockId">
+                <mat-option *ngFor="let block of blocks" [value]="block.blockId"> {{block.blockCode}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="onCallUpdateForm.get('blockId').hasError('required')" class="full-width">Block field is required.</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="full-width">
+            <mat-label>Enter a OnCall date range</mat-label>
+            <mat-date-range-input  [rangePicker]="picker"> 
+              <input matStartDate formControlName="onCallStart" placeholder="Start date">
+              <input matEndDate formControlName="onCallEnd" placeholder="End date">
+            </mat-date-range-input>
+            <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker #picker></mat-date-range-picker>
+            <mat-error *ngIf="onCallUpdateForm.get('onCallStart').hasError('required')" class="full-width">OnCall date field is required.</mat-error>
+            <mat-error *ngIf="onCallUpdateForm.get('onCallEnd').hasError('required')" class="full-width">OnCall date field is required.</mat-error>
+          </mat-form-field>
+        <br>
+    </form>
+    <mat-dialog-actions align="center">
+        <button mat-raised-button color="primary" [disabled]="onCallUpdateForm.invalid"  (click)="addNewOncall()">Submit</button>
+    </mat-dialog-actions>
+    

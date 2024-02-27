@@ -1,0 +1,87 @@
+<!-- <button mat-button (click)="drawer.toggle()"> -->
+  <h1>Hospital Dashboard</h1>
+<!-- </button> -->
+
+
+<div class="flex">
+  <mat-card class="card">
+      <mat-card-header>
+          <mat-card-title>Physicians</mat-card-title>
+      </mat-card-header>
+      <mat-card-content >
+
+        <h4>{{numPhysician}}</h4>
+        <!-- <img mat-card-sm-image src="../../assets/doctor.png" > -->
+
+      </mat-card-content>
+      <mat-card-actions align="end">
+          <button mat-raised-button color="primary" routerLink="/physician">Show More...</button>
+        </mat-card-actions>
+    </mat-card>
+    <mat-card class="card">
+      <mat-card-header>
+          <mat-card-title>Treatments</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <h4>{{numTreatment}}</h4>
+      </mat-card-content>
+      <mat-card-actions align="end">
+          <button mat-raised-button color="primary" routerLink="/treatment">Show More...</button>
+        </mat-card-actions>
+    </mat-card>
+    <mat-card class="card">
+      <mat-card-header>
+          <mat-card-title>Nurse</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <h4>{{numNurse}}</h4>
+      </mat-card-content>
+      <mat-card-actions align="end">
+          <button mat-raised-button color="primary" routerLink="/nurse">Show More...</button>
+        </mat-card-actions>
+    </mat-card>
+    <mat-card class="card">
+      <mat-card-header>
+          <mat-card-title>Patient</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <h4>{{numPatient}}</h4>
+      </mat-card-content>
+      <mat-card-actions align="end">
+          <button mat-raised-button color="primary" routerLink="/patient">Show More...</button>
+        </mat-card-actions>
+    </mat-card>
+    <mat-card class="card">
+      <mat-card-header>
+          <mat-card-title>Block</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <h4>{{numBlock}}</h4>
+      </mat-card-content>
+      <mat-card-actions align="end">
+          <button mat-raised-button color="primary" routerLink="/block">Show More...</button>
+        </mat-card-actions>
+    </mat-card>
+    <mat-card class="card">
+      <mat-card-header>
+          <mat-card-title>Room</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <h4>{{numRoom}}</h4>
+      </mat-card-content>
+      <mat-card-actions align="end">
+          <button mat-raised-button color="primary" routerLink="/room">Show More...</button>
+        </mat-card-actions>
+    </mat-card>
+    
+  </div>
+  <br>
+
+<div class="flex" style="position: relative; height:40vh; width:80vw">
+  <h4>Number of Users:-</h4>
+  <canvas id="piechart"></canvas>
+</div>
+
+
+
+

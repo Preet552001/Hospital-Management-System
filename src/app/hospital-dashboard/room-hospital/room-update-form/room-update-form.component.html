@@ -1,0 +1,43 @@
+<div class="flex">
+    <h2 mat-dialog-title>Add New Room</h2>
+    <mat-dialog-actions>
+        <button mat-mini-fab color="warn" mat-dialog-close><mat-icon>close</mat-icon></button>
+    </mat-dialog-actions>
+</div>
+<form mat-dialog-content class="form" [formGroup]="roomRegistrationForm">
+    <!-- <mat-form-field class="full-width">
+        <mat-label>Enter Room Id</mat-label>
+        <input matInput placeholder="Enter Id" formControlName="roomId">
+    </mat-form-field>
+    <br> -->
+    <mat-form-field class="full-width">
+        <mat-label>Enter Room Number</mat-label>
+        <input matInput placeholder="Enter Number" formControlName="roomNumber">
+        <mat-error *ngIf="roomRegistrationForm.get('roomNumber').hasError('required')" class="full-width">Room number field is required.</mat-error>
+        <mat-error *ngIf="roomRegistrationForm.get('roomNumber').hasError('pattern')" class="full-width">Please enter valid room number.</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="full-width">
+        <mat-label>Enter Room Type</mat-label>
+        <input matInput placeholder="Enter Type" formControlName="roomType">
+        <mat-error *ngIf="roomRegistrationForm.get('roomType').hasError('required')" class="full-width">Room type field is required.</mat-error>
+        <mat-error *ngIf="roomRegistrationForm.get('roomType').hasError('pattern')" class="full-width">Please enter valid room type.</mat-error>
+    </mat-form-field>
+    <br>
+    <!-- <mat-form-field class="full-width">
+        <mat-label>Enter Room Availability</mat-label>
+        <input matInput placeholder="Enter Room Availability" formControlName="availability">
+    </mat-form-field>
+    <br> -->
+    <mat-form-field class="full-width" >
+        <mat-label>Enter Block</mat-label>
+        <mat-select formControlName="blockId">
+            <mat-option *ngFor="let block of blocks" [value]="block.blockId"> {{block.blockCode}}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="roomRegistrationForm.get('blockId').hasError('required')" class="full-width">Block field is required.</mat-error>
+    </mat-form-field>
+    <br>
+</form>
+<mat-dialog-actions align="center">
+    <button mat-raised-button color="primary" [disabled]="roomRegistrationForm.invalid"  (click)="updateRoom()">Submit</button>
+</mat-dialog-actions>

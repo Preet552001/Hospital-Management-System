@@ -1,0 +1,15 @@
+<div class="flex">
+    <h2 mat-dialog-title >
+        Are You Sure You Want to Delete Block</h2>
+    <mat-dialog-actions>
+      <button mat-mini-fab color="warn" mat-dialog-close><mat-icon>close</mat-icon></button>
+      </mat-dialog-actions>
+</div>
+<mat-dialog-content>
+    <!-- <h3>Block Id : {{data.blockData.blockId}}</h3> -->
+    <h3>Floor : {{data.blockData.blockFloor}}</h3>
+    <h5>Code : {{data.blockData.blockCode}}</h5>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+    <button mat-raised-button color="warn" (click)="deleteBlock()">Delete</button>
+  </mat-dialog-actions>  

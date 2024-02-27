@@ -1,0 +1,22 @@
+.sidenav{
+    background-color: #3f50b5;
+    justify-content: space-between; 
+    justify-content: center;
+    width: 10%;
+}
+.container{
+    height: 100%;
+}
+.btn{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 90%;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    padding: 10px;
+    /* width: 20%; */
+}
+.mat-mdc-button.mat-unthemed{
+    color: white;
+}

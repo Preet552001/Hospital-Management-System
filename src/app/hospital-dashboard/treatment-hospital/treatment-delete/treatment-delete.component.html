@@ -1,0 +1,15 @@
+<div class="flex">
+    <h2 mat-dialog-title >
+        Are You Sure You Want to Delete Treatment</h2>
+    <mat-dialog-actions>
+      <button mat-mini-fab color="warn" mat-dialog-close><mat-icon>close</mat-icon></button>
+      </mat-dialog-actions>
+</div>
+<mat-dialog-content>
+    <!-- <h3>Treatment Id : {{data.treatmentData.procedureId}}</h3> -->
+    <h3>Name: {{data.treatmentData.name}}</h3>
+    <h5>Cost: {{data.treatmentData.cost}}</h5>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+    <button mat-raised-button color="warn" (click)="deleteTreatment()">Delete</button>
+  </mat-dialog-actions>  

@@ -1,0 +1,16 @@
+<div class="flex">
+    <h2 mat-dialog-title >
+        Are You Sure You Want to Delete Oncall</h2>
+    <mat-dialog-actions>
+      <button mat-mini-fab color="warn" mat-dialog-close><mat-icon>close</mat-icon></button>
+      </mat-dialog-actions>
+</div>
+<mat-dialog-content>
+    <h3>Oncall On Block Code: {{data.oncallData.block.blockCode}}</h3>
+    <h5>Oncall On Block Floor: {{data.oncallData.block.blockFloor}}</h5>
+    <h5>Oncall Start Date: {{data.oncallData.onCallStart | date}} </h5>
+    <h5>Oncall End Date: {{data.oncallData.onCallEnd | date}} </h5>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+    <button mat-raised-button color="warn" (click)="deleteOncall()">Delete</button>
+  </mat-dialog-actions>  

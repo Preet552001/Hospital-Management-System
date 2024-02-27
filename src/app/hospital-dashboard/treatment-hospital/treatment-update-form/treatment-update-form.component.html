@@ -1,0 +1,31 @@
+<div class="flex">
+    <h2 mat-dialog-title>Update Treatment Details</h2>
+    <mat-dialog-actions>
+        <button mat-mini-fab color="warn" mat-dialog-close><mat-icon>close</mat-icon></button>
+    </mat-dialog-actions>
+    </div>
+    <form mat-dialog-content class="form" [formGroup]="treatmentUpdateForm">
+        <!-- <mat-form-field class="full-width">
+            <mat-label>Enter Treatment Id</mat-label>
+            <input matInput [disabled]="false" placeholder="Enter Id" formControlName="treatmentId">
+        </mat-form-field>
+        <br> -->
+        <mat-form-field class="full-width" >
+            <mat-label>Enter Treatment Name</mat-label>
+            <input matInput  placeholder="Enter Name" formControlName="name">
+            <mat-error *ngIf="treatmentUpdateForm.get('name').hasError('required')" class="full-width">Name field is required.</mat-error>
+            <mat-error *ngIf="treatmentUpdateForm.get('name').hasError('pattern')" class="full-width">Please enter valid name.</mat-error>    
+        </mat-form-field>
+        <br>
+        <mat-form-field class="full-width">
+            <mat-label>Enter Treatment cost</mat-label>
+            <input matInput placeholder="Enter Cost" formControlName="cost">
+            <mat-error *ngIf="treatmentUpdateForm.get('cost').hasError('required')" class="full-width">Cost field is required.</mat-error>
+            <mat-error *ngIf="treatmentUpdateForm.get('cost').hasError('pattern')" class="full-width">Please enter valid cost.</mat-error>    
+        </mat-form-field>
+        <br>
+    </form>
+    <mat-dialog-actions align="center">
+        <button mat-raised-button color="primary" [disabled]="treatmentUpdateForm.invalid"  (click)="updateTreatment()">Submit</button>
+    </mat-dialog-actions>
+    

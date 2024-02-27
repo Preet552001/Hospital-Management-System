@@ -1,0 +1,26 @@
+<div class="flex">
+    <h2 mat-dialog-title>Add New Physician</h2>
+    <mat-dialog-actions>
+        <button mat-mini-fab color="warn" mat-dialog-close><mat-icon>close</mat-icon></button>
+    </mat-dialog-actions>
+</div>
+<form mat-dialog-content class="form" [formGroup]="physicianRegistrationForm">
+    <mat-form-field class="full-width" >
+        <mat-label>Enter Physician Name</mat-label>
+        <input matInput  placeholder="Enter Name" formControlName="name">
+        <mat-error *ngIf="physicianRegistrationForm.get('name').hasError('required')" class="full-width">Name field is required.</mat-error>
+        <mat-error *ngIf="physicianRegistrationForm.get('name').hasError('pattern')" class="full-width">Please enter valid name.</mat-error>
+        <mat-error *ngIf="physicianRegistrationForm.get('name').hasError('minlength')" class="full-width">Please enter valid name.</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="full-width">
+        <mat-label>Enter Physician Position</mat-label>
+        <input matInput placeholder="Enter Position" formControlName="position">
+        <mat-error *ngIf="physicianRegistrationForm.get('position').hasError('required')" class="full-width">Position field is required.</mat-error>
+        <mat-error *ngIf="physicianRegistrationForm.get('position').hasError('pattern')" class="full-width">Please enter valid position.</mat-error>
+    </mat-form-field>
+    <br>
+</form>
+<mat-dialog-actions align="center">
+    <button mat-raised-button color="primary" [disabled]="physicianRegistrationForm.invalid" (click)="addNewPhysician()">Submit</button>
+</mat-dialog-actions>

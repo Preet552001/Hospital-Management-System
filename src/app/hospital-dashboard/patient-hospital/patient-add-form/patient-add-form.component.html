@@ -1,0 +1,33 @@
+<div class="flex">
+    <h2 mat-dialog-title>Add New Patient</h2>
+    <mat-dialog-actions>
+        <button mat-mini-fab color="warn" mat-dialog-close><mat-icon>close</mat-icon></button>
+    </mat-dialog-actions>
+</div>
+<form mat-dialog-content class="form" [formGroup]="patientRegistrationForm">
+    <mat-form-field class="full-width" >
+        <mat-label>Enter Patient Name</mat-label>
+        <input matInput  placeholder="Enter Name" formControlName="name">
+        <mat-error *ngIf="patientRegistrationForm.get('name').hasError('required')" class="full-width">Name field is required.</mat-error>
+        <mat-error *ngIf="patientRegistrationForm.get('name').hasError('pattern')" class="full-width">Please enter valid name.</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="full-width">
+        <mat-label>Enter Patient Address</mat-label>
+        <input matInput placeholder="Enter Address" formControlName="address">
+        <mat-error *ngIf="patientRegistrationForm.get('address').hasError('required')" class="full-width">Address field is required.</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="full-width">
+        <mat-label>Enter Patient Phone</mat-label>
+        <input matInput placeholder="Enter Phone" formControlName="phone">
+        <mat-error *ngIf="patientRegistrationForm.get('phone').hasError('required')" class="full-width">Phone field is required.</mat-error>
+        <mat-error *ngIf="patientRegistrationForm.get('phone').hasError('pattern')" class="full-width">Please enter valid phone.</mat-error>
+        <mat-error *ngIf="patientRegistrationForm.get('phone').hasError('minlength')" class="full-width">Please enter valid phone.</mat-error>
+        <mat-error *ngIf="patientRegistrationForm.get('phone').hasError('maxlength')" class="full-width">Please enter valid phone.</mat-error>
+    </mat-form-field>
+    <br>
+</form>
+<mat-dialog-actions align="center">
+    <button mat-raised-button color="primary" [disabled]="patientRegistrationForm.invalid" (click)="addNewPatient()">Submit</button>
+</mat-dialog-actions>

@@ -1,0 +1,41 @@
+<div class="flex">
+    <h2 mat-dialog-title>Add Appointment</h2>
+    <mat-dialog-actions>
+        <button mat-mini-fab color="warn" mat-dialog-close><mat-icon>close</mat-icon></button>
+    </mat-dialog-actions>
+    </div>
+    <form mat-dialog-content class="form" [formGroup]="appointmentUpdateForm">
+        <mat-form-field class="full-width" >
+            <mat-label>Enter Patient</mat-label>
+            <mat-select formControlName="patientId">
+                <mat-option *ngFor="let patient of patients" [value]="patient.patientId"> {{patient.name}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="appointmentUpdateForm.get('patientId').hasError('required')" class="full-width">Patient field is required.</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="full-width" >
+            <mat-label>Enter Physician</mat-label>
+            <mat-select formControlName="physicianId">
+                <mat-option *ngFor="let physician of physicians" [value]="physician.physicianId"> {{physician.name}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="appointmentUpdateForm.get('physicianId').hasError('required')" class="full-width">Physician field is required.</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="full-width">
+            <mat-label>Enter a Appointment date range</mat-label>
+            <mat-date-range-input  [rangePicker]="picker"> 
+              <input matStartDate formControlName="startDateTime" placeholder="Start date">
+              <input matEndDate formControlName="endDateTime" placeholder="End date">
+            </mat-date-range-input>
+            <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker #picker></mat-date-range-picker>
+            <mat-error *ngIf="appointmentUpdateForm.get('startDateTime').hasError('required')" class="full-width">Appointment date field is required.</mat-error>
+            <mat-error *ngIf="appointmentUpdateForm.get('endDateTime').hasError('required')" class="full-width">Appointment date field is required.</mat-error> 
+        </mat-form-field>
+        <br>
+    </form>
+    <mat-dialog-actions align="center">
+        <button mat-raised-button color="primary" [disabled]="appointmentUpdateForm.invalid"  (click)="updateAppointment()">Submit</button>
+    </mat-dialog-actions>
+    

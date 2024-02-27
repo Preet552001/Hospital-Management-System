@@ -1,0 +1,27 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button (click)="drawer.toggle()" class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Hospital</span>
+</mat-toolbar>
+<mat-drawer-container class="container" [hasBackdrop]="'true'">
+  <mat-drawer #drawer [mode]="'push'" class="sidenav">
+    <button mat-button class="btn" routerLink="">Dashboard</button>
+
+    <button mat-button class="btn" routerLink="physician">Physicians</button>
+
+    <button mat-button class="btn" routerLink="treatment">Treatments</button>
+
+    <button mat-button class="btn" routerLink="nurse">Nurse</button>
+
+    <button mat-button class="btn" routerLink="patient">Patient</button>
+
+    <button mat-button class="btn" routerLink="block">Block</button>
+
+    <button mat-button class="btn" routerLink="room">Room</button>
+  </mat-drawer>
+  <mat-drawer-content>
+    <!-- <app-hospital-dashboard></app-hospital-dashboard> -->
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>
